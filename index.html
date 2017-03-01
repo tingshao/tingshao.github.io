@@ -217,6 +217,21 @@ function createGazeController(scene, clock, numberOfDots) {
 }
 
 var video, videoImageContext, videoTexture;
+function pauseVideo() {
+  video.pause();
+}
+
+function playVideo() {
+  video.play();
+}
+
+setInterval(1000, function() {
+  if (video.paused)
+    video.play();
+  else
+    video.pause();
+})
+
 function createVideo(camera, scene, src) {
   //var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
   video = document.createElement( 'video' );
